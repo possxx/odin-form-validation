@@ -1,1 +1,266 @@
 @import '../node_modules/possxx-reset/possxx-reset.css';
+
+@font-face {
+	font-family: 'Inter';
+	src: url('./assets/fonts/Inter-VariableFont_opsz\,wght.woff2')
+		format('woff2-variations');
+	font-weight: 100 900;
+}
+
+:root {
+	--primary-color: #0608b4;
+	--primary-color-hover: #050799;
+	--error-color: #b20608;
+	--primary-text-color: #2d333a;
+	--secondary-text-color: #6f7780;
+	--border-color: #c2c8d0;
+}
+
+body {
+	height: 100dvh;
+	overflow-x: hidden;
+	font-family: 'Inter';
+}
+
+.create-account-page {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 80px;
+}
+
+.create-account-form-wrapper form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 340px;
+}
+
+.title-wrapper {
+	padding: 40px 40px 24px;
+}
+
+.title {
+	font-family: inherit;
+	color: var(--primary-text-color);
+	white-space: nowrap;
+	width: 320px;
+	text-align: center;
+}
+
+.create-account-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	padding: 0px 40px;
+}
+
+.email-input-wrapper,
+.zip-input-wrapper,
+.password-input-wrapper,
+.confirm-password-input-wrapper,
+.country-input-wrapper {
+	position: relative;
+	width: 320px;
+}
+
+.confirm-password-input-wrapper {
+	margin-bottom: 16px;
+}
+
+.email-input,
+.zip-input,
+.password-input,
+.confirm-password-input,
+.country-input {
+	appearance: none;
+	background-color: #fff;
+	border-radius: 6px;
+	color: var(--primary-text-color);
+	font-family: inherit;
+	font-size: 16px;
+	height: 52px;
+	line-height: 1.1;
+	padding-block: 1px;
+	padding-inline: 2px;
+	padding: 0 16px;
+	width: 100%;
+	text-rendering: auto;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0;
+	text-shadow: none;
+	text-align: start;
+	margin: 0;
+	border: 1px solid;
+	border-color: var(--border-color);
+	transition:
+		box-shadow 0.2s ease-in-out,
+		border-color 0.2s ease-in-out;
+}
+
+.email-input:focus,
+.zip-input:focus,
+.password-input:focus,
+.confirm-password-input:focus,
+.country-input:focus {
+	outline: none;
+	border: 1px solid var(--primary-color);
+}
+
+.email-label,
+.zip-label,
+.password-label,
+.confirm-password-label,
+.country-label {
+	position: absolute;
+	top: 26px;
+	left: 16px;
+	background-color: #fff;
+	color: var(--secondary-text-color);
+	font-size: 16px;
+	font-weight: 400;
+	margin-bottom: 8px;
+	max-width: 90%;
+	overflow: hidden;
+	pointer-events: none;
+	padding: 1px 6px;
+	text-overflow: ellipsis;
+	transform: translateY(-50%);
+	transform-origin: 0;
+	transition:
+		transform 0.15s ease-in-out,
+		top 0.15s ease-in-out,
+		padding 0.15s ease-in-out;
+	white-space: nowrap;
+	z-index: 1;
+}
+
+.email-input:focus + .email-label,
+.zip-input:focus + .zip-label,
+.password-input:focus + .password-label,
+.confirm-password-input:focus + .confirm-password-label,
+.country-input:focus + .country-label {
+	font-size: 14px;
+	top: 0;
+	left: 10px;
+	color: var(--primary-color);
+	background-color: #fff;
+}
+
+.full {
+	font-size: 14px;
+	top: 0;
+	left: 10px;
+	color: var(--secondary-text-color);
+	position: absolute;
+	background-color: #fff;
+	font-weight: 400;
+	margin-bottom: 8px;
+	max-width: 90%;
+	overflow: hidden;
+	pointer-events: none;
+	padding: 1px 6px;
+	text-overflow: ellipsis;
+	transform: translateY(-50%);
+	transform-origin: 0;
+	transition:
+		transform 0.15s ease-in-out,
+		top 0.15s ease-in-out,
+		padding 0.15s ease-in-out;
+	white-space: nowrap;
+	z-index: 1;
+}
+
+.create-account {
+	height: 52px;
+	width: 320px;
+	background-color: var(--primary-color);
+	color: #fff;
+	border-radius: 6px;
+	padding: 4px 16px;
+	font: inherit;
+	border-width: 0;
+	cursor: pointer;
+}
+
+.create-account:hover {
+	background-color: var(--primary-color-hover);
+}
+
+.login {
+	font: inherit;
+	text-align: center;
+	margin-top: 16px;
+	font-size: 14px;
+	width: 320px;
+	color: var(--primary-text-color);
+}
+
+.login a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+.login a:hover {
+	color: var(--primary-color-hover);
+}
+
+.email-error,
+.country-error,
+.zip-error,
+.password-error,
+.confirm-password-error {
+	display: flex;
+	align-items: center;
+}
+
+.email-error svg,
+.country-error svg,
+.zip-error svg,
+.password-error svg,
+.confirm-password-error svg {
+	fill: var(--error-color);
+	max-width: 16px;
+	margin-right: 4px;
+}
+
+.email-error p,
+.country-error p,
+.zip-error p,
+.password-error p,
+.confirm-password-error p {
+	font-family: 'Inter';
+	font-size: 12px;
+	color: var(--error-color);
+	margin: 4px 0 0 0;
+}
+
+.error {
+	color: var(--error-color);
+	border-color: var(--error-color);
+}
+
+.email-input.error:focus,
+.zip-input.error:focus,
+.password-input.error:focus,
+.confirm-password-input.error:focus,
+.country-input.error:focus {
+	outline: none;
+	border: 1px solid var(--error-color);
+}
+
+.email-input.error:focus + .email-label.error,
+.zip-input.error:focus + .zip-label.error,
+.password-input.error:focus + .password-label.error,
+.confirm-password-input.error:focus + .confirm-password-label.error,
+.country-input.error:focus + .country-label.error {
+	font-size: 14px;
+	top: 0;
+	left: 10px;
+	color: var(--error-color);
+	background-color: #fff;
+}
